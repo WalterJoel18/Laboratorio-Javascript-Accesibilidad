@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Accesibilidad</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333333;
+            font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+            padding: 1.5em;
+            margin: 0;
+        }
+
+        /* 
+           cajas para para diferenciar el feo del bonito
+            */
+        .caja-original {
+            background-color: #fff5f5;
+            /* Rojo suave */
+            border: 1px solid #fecaca;
+            border-left: 5px solid #ef4444;
+            border-radius: 6px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .caja-corregida {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-left: 5px solid #22c55e;
+            border-radius: 6px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .etiqueta-estado {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .etiqueta-original {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        .etiqueta-corregida {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        form {
+            width: 400px;
+        }
+
+        fieldset {
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 5px;
+        }
+
+        /* Estilo para las listas dentro de formularios */
+        .caja-original form ul,
+        ul.form-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .caja-original form li,
+        ul.form-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        /* Estilos de botones (Original y Corregido) */
+        .button,
+        button {
+            display: inline-block;
+            color: white;
+            background-color: blue;
+            border: none;
+            border-radius: 10px;
+            width: 170px;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        hr {
+            margin: 40px 0;
+            border: 0;
+            border-top: 1px dashed #d1d5db;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Laboratorio de Accesibilidad</h1>
+        <p><strong>Estudiantes:</strong> Walter Gonzalez y Hector Vargas</p>
+    </header>
+
+    <hr>
+
+    <!-- 
+         PROBLEMA 1
+          -->
+    <section>
+        <h2>PROBLEMA 1</h2>
+
+        <!-- VERSIÓN ORIGINAL -->
+        <div class="caja-original">
+            <span class="etiqueta-estado etiqueta-original">Código Original (Sin corregir)</span>
+            <div>
+                <font size="7">Need help?</font>
+                <br><br>
+                If you have any problems with our products, our support center
+                can offer you all the help you need, whether you want:
+                <br><br>
+                1. Advice choosing a new product
+                <br>
+                2. Tech support on an existing product
+                <br>
+                3. Refund and cancellation assistance
+                <br><br>
+                <font size="5">Contact us now</font>
+                <br><br>
+                Our help center contains live chat, e-mail addresses, and phone
+                numbers.
+                <br><br>
+                <div class="button">Find Contact Details</div>
+                <br>
+                <font size="5">Find out answers</font>
+                <br><br>
+                Our Forums section contains a large knowledge base of
+                searchable previously asked questions, and you can always ask
+                a new question if you can't find the answer you're looking for.
+                <br><br>
+                <div class="button">Access Forums</div>
+            </div>
+        </div>
+
+        <!-- VERSIÓN CORREGIDA -->
+        <div class="caja-corregida">
+            <span class="etiqueta-estado etiqueta-corregida">Código Corregido (Accesible)</span>
+            <div>
+                <h3>Need help?</h3>
+                <p>If you have any problems with our products, our support center can offer you all the help you need,
+                    whether you want:</p>
+
+                <ul>
+                    <li>Advice choosing a new product</li>
+                    <li>Tech support on an existing product</li>
+                    <li>Refund and cancellation assistance</li>
+                </ul>
+
+                <h4>Contact us now</h4>
+                <p>Our help center contains live chat, e-mail addresses, and phone numbers.</p>
+                <button type="button">Find Contact Details</button>
+
+                <h4>Find out answers</h4>
+                <p>Our Forums section contains a large knowledge base of searchable previously asked questions, and you
+                    can always ask a new question if you can't find the answer you're looking for.</p>
+                <button type="button">Access Forums</button>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- 
+         PROBLEMA 2
+          -->
+    <section>
+        <h2>PROBLEMA 2</h2>
+
+        <!-- VERSIÓN ORIGINAL -->
+        <div class="caja-original">
+            <span class="etiqueta-estado etiqueta-original">Código Original (Sin corregir)</span>
+            <form>
+                <ul>
+                    <li>
+                        Name
+                        <input type="text" name="name">
+                    </li>
+                    <li>
+                        Age
+                        <input type="number" name="age">
+                    </li>
+                    <li>
+                        Email address
+                        <input type="email" name="email">
+                    </li>
+                </ul>
+            </form>
+        </div>
+
+        <!-- VERSIÓN CORREGIDA -->
+        <div class="caja-corregida">
+            <span class="etiqueta-estado etiqueta-corregida">Código Corregido (Accesible)</span>
+            <form action="#">
+                <fieldset>
+                    <legend>Datos Personales</legend>
+                    <ul class="form-list">
+                        <li>
+                            <label for="user_name">Name</label>
+                            <input type="text" id="user_name" name="name">
+                        </li>
+                        <li>
+                            <label for="user_age">Age</label>
+                            <input type="number" id="user_age" name="age">
+                        </li>
+                        <li>
+                            <label for="user_email">Email address</label>
+                            <input type="email" id="user_email" name="email">
+                        </li>
+                    </ul>
+                </fieldset>
+            </form>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- 
+         PROBLEMA 3
+          -->
+    <section>
+        <h2>PROBLEMA 3</h2>
+
+        <!-- VERSIÓN ORIGINAL-->
+        <div class="caja-original">
+            <span class="etiqueta-estado etiqueta-original">Código Original (Sin corregir)</span>
+            <p>For more information about our activities, check out our
+                fundraising page (<a href="/fundraising">click here</a>),
+                education page (<a href="/education">click here</a>),
+                sponsorship pack (<a href="/resources/sponsorship.pdf">click
+                    here</a>), and assessment sheets (<a href="/resources/assessments.docx">click here</a>).</p>
+        </div>
+
+        <!-- VERSIÓN CORREGIDA-->
+        <div class="caja-corregida">
+            <span class="etiqueta-estado etiqueta-corregida">Código Corregido (Accesible)</span>
+            <p>
+                For more information about our activities, check out our
+                <a href="/fundraising">fundraising page</a>,
+                <a href="/education">education page</a>,
+                <a href="/resources/sponsorship.pdf">sponsorship pack (PDF, 8 MB)</a>, and
+                <a href="/resources/assessments.docx">assessment sheets (Word Document)</a>.
+            </p>
+        </div>
+    </section>
+
+</body>
+
+</html>
